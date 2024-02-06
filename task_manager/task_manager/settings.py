@@ -24,6 +24,7 @@ logger = logging.getLogger()
 
 SECRET_KEY = environ.get("SECRET_KEY") 
 if SECRET_KEY is None:
+    SECRET_KEY = "awesrdgfhgkzho;rnzjnsobr"
     logger.warning("\x1b[31;20m SECRET_KEY has not been set!!\x1b[0m") #TODO: setup logger and use warrning
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -40,6 +41,7 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    "task.apps.TaskConfig"
 ]
 
 MIDDLEWARE = [

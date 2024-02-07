@@ -9,3 +9,8 @@ and lets see how far I can go
 
 ## UPDATES & IDEAS
 - task manager should rename to note manager. keeping notes ,tasks, daily notes, daily tasks, projects and related tasks, list as checklist[ like shopping list and ... ]
+- Adding manifests and use k8s :)
+
+## How to use:
+  pass for now
+  

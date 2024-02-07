@@ -1,5 +1,8 @@
 from django.db import models
 from django.utils.translation import gettext_lazy as _
+from django.utils import timesince
+
+import uuid
 # Create your models here.
 
 class Task(models.Model):
@@ -14,7 +17,13 @@ class Task(models.Model):
     class PRIORITY_CHOICES(models.IntegerChoices):
         LOW = 0
         NORMAL = 1
-
+    
+    id = models.UUIDField(
+        primary_key= True,
+        default=uuid.uuid4,
+        editable=False
+    )
+    
     title = models.CharField(_("Title"), max_length=128)
 
     description = models.TextField(
@@ -50,5 +59,9 @@ class Task(models.Model):
 
     @property
     def until(self):
-        return 2    #TODO: calculate the remaining days
+        if self.deadline is None:
+            return "-"
+        return timesince.timeuntil(
+            self.deadline
+        )
     

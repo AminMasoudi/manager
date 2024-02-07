@@ -12,7 +12,10 @@ class Task(models.Model):
         verbose_name_plural = _("Tasks")
     
     class STATE_CHOICES(models.IntegerChoices):
-        TODO = 0
+        TODO = 1
+        In_progress = 2
+        Blocked = 3
+        Done = 4
 
     class PRIORITY_CHOICES(models.IntegerChoices):
         LOW = 0
@@ -64,4 +67,8 @@ class Task(models.Model):
         return timesince.timeuntil(
             self.deadline
         )
+
+    def done(self) -> bool:
+        return self.state == self.STATE_CHOICES.Done
+    done.boolean = True
     

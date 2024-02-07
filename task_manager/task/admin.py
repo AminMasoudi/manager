@@ -5,14 +5,13 @@ from .models import Task
 @admin.register(Task)
 class TaskAdmin(admin.ModelAdmin):
     list_display = (
-        "pk",
         "title",
         "state",
         "priority",
         "until",
         "deadline",
         )
-    list_display_links = "pk", "title"
+    list_display_links = "title", 
     # TODO : add action
     # TODO : add filters
      

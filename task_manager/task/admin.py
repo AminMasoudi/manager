@@ -59,7 +59,7 @@ class TaskAdmin(admin.ModelAdmin):
         "priority",
     )
 
-    radio_fields = {"priority": admin.VERTICAL, "state": admin.VERTICAL}
+    # radio_fields = {"priority": admin.VERTICAL, "state": admin.VERTICAL}
 
     date_hierarchy = "deadline"
     empty_value_display = '<dev style="color:#70bf2b;">-empty-</dev>' #DONT ASK :)) #BUG css in backend??

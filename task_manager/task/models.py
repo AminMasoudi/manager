@@ -63,7 +63,7 @@ class Task(models.Model):
     @property
     def until(self):
         if self.deadline is None:
-            return "-"
+            return 
         return timesince.timeuntil(
             self.deadline
         )

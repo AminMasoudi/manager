@@ -25,7 +25,7 @@ logger = logging.getLogger()
 SECRET_KEY = environ.get("SECRET_KEY") 
 if SECRET_KEY is None:
     SECRET_KEY = "awesrdgfhgkzho;rnzjnsobr"
-    logger.warning("\x1b[31;20m SECRET_KEY has not been set!!\x1b[0m") #TODO: setup logger and use warrning
+    logger.warning("\x1b[31;20m SECRET_KEY has not been set!!\x1b[0m") 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    "django_admin_listfilter_dropdown",
     "task.apps.TaskConfig"
 ]
 
@@ -127,7 +128,7 @@ STATIC_URL = "static/"
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
-LOGGING = {
+LOGGING = {     #FIXME : Next Version: Better logger 
         "version" : 1,
         "disable_existing_loggers": False,
         "formatters": {

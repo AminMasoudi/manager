@@ -13,7 +13,6 @@ class TaskAdmin(admin.ModelAdmin):
         "until",
         "deadline",
         )
-    list_display_links = "title", 
     actions = (
         "state_to_todo",
         "state_to_in_progress",

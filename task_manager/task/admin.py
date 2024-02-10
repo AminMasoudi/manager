@@ -26,6 +26,7 @@ class TaskAdmin(admin.ModelAdmin):
         "state_to_blocked",
         "state_to_done",
     )
+    search_fields = ("id", "title", "in_line_tasks__title")
     
     readonly_fields = "updated_date", "created_date"
     fieldsets = (

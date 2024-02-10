@@ -120,7 +120,7 @@ class TaskAdmin(admin.ModelAdmin):
             )
         return fieldsets
 
-    # TODO : add search fields
+    # [x] : add search fields
     # [x] : add ordering
     # [x] : add inlines
 

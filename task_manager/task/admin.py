@@ -1,4 +1,6 @@
+from collections.abc import Sequence
 from django.contrib import admin
+from django.http.request import HttpRequest
 from .models import Task, InlineTask
 from django.utils.translation import gettext as _
 # Register your models here.
@@ -64,6 +66,10 @@ class TaskAdmin(admin.ModelAdmin):
     )
     inlines = InlineTaskAdmin,
 
+    ordering = ("deadline", "-priority", "state")
+
+    def get_list_display(self, request: HttpRequest) -> Sequence[str]:
+        return super().get_list_display(request)
     # radio_fields = {"priority": admin.VERTICAL, "state": admin.VERTICAL}
 
     date_hierarchy = "deadline"
@@ -114,7 +120,7 @@ class TaskAdmin(admin.ModelAdmin):
         return fieldsets
 
     # TODO : add search fields
-    # TODO : add ordering
+    # [x] : add ordering
     # [x] : add inlines
 
         

@@ -72,3 +72,19 @@ class Task(models.Model):
         return self.state == self.STATE_CHOICES.Done
     done.boolean = True
     
+
+class InlineTask(models.Model):
+
+    title = models.CharField(_("title"), max_length=50)
+    done  = models.BooleanField(_("is done"))
+    task  = models.ForeignKey(
+        "task.Task",
+        on_delete=models.CASCADE,
+        related_name="in_line_tasks"
+        )
+    class Meta:
+        verbose_name = _("InLineTask")
+        verbose_name_plural = _("Check list")
+
+    def __str__(self):
+        return self.title

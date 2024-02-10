@@ -1,7 +1,12 @@
 from django.contrib import admin
-from .models import Task
+from .models import Task, InlineTask
 from django.utils.translation import gettext as _
 # Register your models here.
+
+
+class InlineTaskAdmin(admin.TabularInline):
+    model = InlineTask
+    extra = 0
 
 @admin.register(Task)
 class TaskAdmin(admin.ModelAdmin):
@@ -57,6 +62,7 @@ class TaskAdmin(admin.ModelAdmin):
         "state",
         "priority",
     )
+    inlines = InlineTaskAdmin,
 
     # radio_fields = {"priority": admin.VERTICAL, "state": admin.VERTICAL}
 
@@ -109,6 +115,6 @@ class TaskAdmin(admin.ModelAdmin):
 
     # TODO : add search fields
     # TODO : add ordering
-    # TODO : add inlines
+    # [x] : add inlines
 
         

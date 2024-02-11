@@ -1,9 +1,11 @@
 from django.db import models
 from django.utils.translation import gettext_lazy as _
 from django.utils import timesince
+from django.core.exceptions import ValidationError
 
 import uuid
 # Create your models here.
+
 
 class Task(models.Model):
 
@@ -56,7 +58,7 @@ class Task(models.Model):
         )
     created_date = models.DateTimeField(_("Created at"), auto_now_add=True)
     updated_date = models.DateTimeField(_("Updated at"), auto_now=True)
-
+    
     def __str__(self):
         return self.title
 
@@ -72,6 +74,13 @@ class Task(models.Model):
         return self.state == self.STATE_CHOICES.Done
     done.boolean = True
     
+    def save(self, *args, **kwargs) -> None:
+        if not self.title :
+            raise ValidationError(
+                "must provide title",
+                400
+                )
+        return super().save(*args, **kwargs)
 
 class InlineTask(models.Model):
 
@@ -87,4 +96,4 @@ class InlineTask(models.Model):
         verbose_name_plural = _("Check list")
 
     def __str__(self):
-        return self.title
+        return f"{self.title}"

@@ -1,7 +1,6 @@
 from django.test import TestCase
 from .models import Task
 from django.core.exceptions import ValidationError
-# TODO: Test for create save and update methods
 # Create your tests here.
 
 class TestTask(TestCase):

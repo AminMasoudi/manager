@@ -17,8 +17,9 @@ and lets see how far I can go
 
 ## How to use:
   pass for now
-
-## TODO
+  
+## TODO:
+- [ ] set permission for users
 - [ ] versoin 0.1 
 - [ ] containerize manager service
 - [ ] logout in django-jazzzmin

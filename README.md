@@ -12,7 +12,8 @@ and lets see how far I can go
 - Adding manifests and use k8s :)
 - Notify system with email
 - Assign task and users
-
+- Add Reminder for users
+- each system user can have an acount (users are linux_system_user)
 ## How to use:
   pass for now
   

@@ -16,3 +16,5 @@ and lets see how far I can go
 ## How to use:
   pass for now
   
+## TODO:
+- [ ] set permission for users

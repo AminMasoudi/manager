@@ -42,7 +42,8 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-    "task.apps.TaskConfig"
+    "task.apps.TaskConfig",
+    "user.apps.UserConfig",
 ]
 
 MIDDLEWARE = [
@@ -157,3 +158,4 @@ LOGGING = {     #FIXME : Next Version: Better logger
             }
     }
 
+AUTH_USER_MODEL = "user.User"

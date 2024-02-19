@@ -19,8 +19,9 @@ and lets see how far I can go
   pass for now
   
 ## TODO:
-- [ ] set permission for users
+- [x] set permission for users
 - [ ] versoin 0.1 
 - [ ] containerize manager service
+## Issues:
 - [ ] logout in django-jazzzmin
 

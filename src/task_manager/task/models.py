@@ -56,6 +56,13 @@ class Task(models.Model):
         choices=PRIORITY_CHOICES,
         default = PRIORITY_CHOICES.LOW
         )
+    owner = models.ForeignKey(
+        "user.User",
+        verbose_name=_("Task owner"),
+        on_delete=models.CASCADE,
+        null=True
+        )
+    
     created_date = models.DateTimeField(_("Created at"), auto_now_add=True)
     updated_date = models.DateTimeField(_("Updated at"), auto_now=True)
     

@@ -20,8 +20,8 @@ and lets see how far I can go
   
 ## TODO:
 - [x] set permission for users
-- [ ] versoin 0.1 
-- [ ] containerize manager service
+- [x] versoin 0.1 
+- [x] containerize manager service
 ## Issues:
 - [ ] logout in django-jazzzmin
 

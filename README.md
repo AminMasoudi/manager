@@ -22,6 +22,7 @@ and lets see how far I can go
 - [x] set permission for users
 - [x] versoin 0.1 
 - [x] containerize manager service
+- [ ] add note and others
 ## Issues:
 - [ ] logout in django-jazzzmin
 

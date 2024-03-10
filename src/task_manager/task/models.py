@@ -22,6 +22,8 @@ class Task(models.Model):
     class PRIORITY_CHOICES(models.IntegerChoices):
         LOW = 0
         NORMAL = 1
+        HIGH = 2
+        CRITICAL = 3
     
     id = models.UUIDField(
         primary_key= True,

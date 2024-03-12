@@ -1,5 +1,7 @@
 from collections.abc import Sequence
+from typing import Any
 from django.contrib import admin
+from django.db.models.query import QuerySet
 from django.http.request import HttpRequest
 from .models import Task, InlineTask
 from django.utils.translation import gettext as _
@@ -49,7 +51,9 @@ class TaskAdmin(admin.ModelAdmin):
             _("More..."),
             {
                 "fields": (
-                    "created_date", "updated_date"
+                    "created_date",
+                    "updated_date",
+                    "owner"
                 ),
                 
                 'classes': ('collapse',)
@@ -109,6 +113,7 @@ class TaskAdmin(admin.ModelAdmin):
                         "fields":(
                             "title",
                             "description",
+                            "owner",
                             (
                                 "state",
                                 "priority"
@@ -119,9 +124,8 @@ class TaskAdmin(admin.ModelAdmin):
                 ),
             )
         return fieldsets
-
-    # [x] : add search fields
-    # [x] : add ordering
-    # [x] : add inlines
-
-        
+    def get_queryset(self, request: HttpRequest) -> QuerySet[Any]:
+        qs = super().get_queryset(request)
+        if request.user.is_superuser:
+            return qs
+        return qs.filter(owner=request.user)

@@ -14,7 +14,7 @@ RUN pip install --no-cache-dir --requirement requirements.txt
 
 COPY manage.py .
 COPY task_manager/ .
-COPY user/ .
+COPY core/ .
 COPY task/ .
 COPY . .
 

@@ -16,6 +16,7 @@ class TestUser(TestCase):
         )
         self.assertEqual(test_model.username, "pass")
         self.assertEqual(test_model.email, "pass@pass.com")
+        assert test_model.is_staff 
         assert test_model.groups.filter(name="task_users").exists()
         try:
             User.objects.create_user()

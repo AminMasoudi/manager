@@ -14,12 +14,13 @@ RUN pip install --no-cache-dir --requirement requirements.txt
 
 COPY manage.py .
 COPY task_manager/ .
-COPY user/ .
+COPY core/ .
 COPY task/ .
 COPY . .
 
 EXPOSE 8000
 RUN python manage.py makemigrations
 RUN python manage.py migrate
+RUN python manage.py init_task_app
 
 CMD [ "python", "manage.py", "runserver", "0.0.0.0:8000"]

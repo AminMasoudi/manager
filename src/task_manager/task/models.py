@@ -2,7 +2,7 @@ from django.db import models
 from django.utils.translation import gettext_lazy as _
 from django.utils import timesince
 from django.core.exceptions import ValidationError
-
+from django.conf import settings
 import uuid
 # Create your models here.
 
@@ -59,9 +59,10 @@ class Task(models.Model):
         default = PRIORITY_CHOICES.LOW
         )
     owner = models.ForeignKey(
-        "user.User",
+        settings.AUTH_USER_MODEL,
         verbose_name=_("Task owner"),
         on_delete=models.CASCADE,
+        related_name="tasks",
         null=True
         )
     
